@@ -2,10 +2,6 @@
 
 * Py for kids work through
 ** Chapt 3
-*** Strings
-**** DONE Embedding
-**** DONE Multiplying string
-*** List
-*** Tuples
+*** TODO code for lists/ tuples/map ??
 ** Chapt 4
 

@@ -185,10 +185,113 @@ print('%s In the Middle' % spacing)
 
 #### List
 
-Lists are fun, most likely, you'll encounter different types of list in programming
+**Lists** are fun, most likely, you'll encounter different types of list in programming. **Lists** (generic python list) looks like this, plus some operations
+
+```python
+# this is the same as writing it on 1 line
+# this spacing is to improve readability
+dota_heroes = [
+    "pudge" , "axe", "tidehunter", "riki", "lion"
+]
+
+# prints whole list
+print(dota_heroes)
+# print specific item in list
+print(dota_heroes[0])           # print first item
+# print subset of list from item a - b
+print(dota_heroes[1:3])         # guess what is printed
+# change value of a list item
+dota_heroes[3] = "phantom lancer"
+
+# list can also print numbers, mix of nums/strings, and lists of lists
+nums = [3, 1, 4, 5, 5]
+# # list of lists
+biglist = [nums, dota_heroes]
+# try printing this list out
+# try figgure out how to print a specific item in biglist
+```
+
+> Look up **array index** to see why the first item of a list is `0`
+
+##### Adding to list
+
+use the `append` **function**, which adds an item to end of alist
+
+```python
+# using the same list above
+dota_heroes = [
+    "pudge" , "axe", "tidehunter", "riki", "lion"
+]
+
+dota_heroes.append("techies")   # guess what happened here
+dota_heroes.append("invoker")
+# print to see what changed
+```
+
+##### Removing from list
+
+use the `del` command to delete a specific item in list
+
+```python
+# using the same list above
+dota_heroes = [
+    "pudge" , "axe", "tidehunter", "riki", "lion"
+]
+
+del dota_heroes[2]              # guess what happened here
+# print to see what changed
+```
+
+##### Arithmetics in lists
+
+Same in maths you can use `+` to add two lists together
+
+> `+` can only be used to add 2 list, not a list with a number
+
+```python
+list1 = [1, 2, 3, 4]
+list2 = ["one", "Two", "Three"]
+list3 = list1 + list2
+# print out list3 to see what happened
+```
+
+Also list can be multiplied with numbers
+
+```python
+basic = [1,2]
+print(basic * 4)
+```
+
+> You cant use `` and `` on lists, you can look up why yourself
 
 #### Tuples
 
+Basicly the same as list but uses `()` instead of `[]`. The **difference** is tuples **cannot be changed** when they're created
+
+#### Map
+
+`map` (also `dict`) is a collection of things (list, tuples), the difference is **each item** has a **key** and a **corresponding value**
+
+```python
+# each items contains a
+# key : value
+team_comp = {
+    'top' : 'deeriUS',
+    'mid' : 'lux',
+    'adc' : 'kog',
+    'suport': 'sona',
+    'jungle': 'amumu'
+}
+
+# guess what these commands does
+print(team_comp['adc'])
+team_comp['jungle'] = 'rammus'
+del team_comp['adc']
+```
+
+> You cannot join differnet maps like lists
+
+#### Now Try This
 
 ### Ch4
 
