@@ -1,0 +1,11 @@
+#+TITLE: TODO list for python learning
+
+* Py for kids work through
+** Chapt 3
+*** Strings
+**** DONE Embedding
+**** DONE Multiplying string
+*** List
+*** Tuples
+** Chapt 4
+

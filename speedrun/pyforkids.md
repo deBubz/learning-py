@@ -108,10 +108,86 @@ two + five * (one - 1)  # whats the result of this equation
                         # ans: 1 + 6 * (3 - 1) = 14
 ```
 
-You can try those out on your shell
+You can try those out on `IDLE` the python shell, or run [this](./pyforkids/p1/chapt1.py)
 
 ### Ch3 Strings, Lists, Tuples and Maps
 
+#### String
+
+In programming, *strings* are what we call *text*, think of it as a collection of letters, numbers and symbols. In chapt 1 we used a string `"Hello World"`
+
+We put double(or single) quotes around the text to tell python/the computer that this is a **string**.
+
+To do multi line strings use tripple single quotes `'''` to open and close the multiline string
+
+```python
+poem = '''Roses are red
+Violets are blue
+Python is weird
+And so are you'''
+
+# try print it out to see if it works
+```
+
+##### Some problems with strings
+
+There will be problems with strings which uses quotes in it. **Solution** use the 3x single quotes `'''` or **escape character** (look this up), adding a backslash `\` in front of each single/double quotes you wanted to be reprented as a string (`\'` or `\"`)
+
+```python
+triple = '''He said, "Aren't can't shouldn't wouldn't". '''
+escape = "He said, \"Aren\'t can\'t shouldn\'t wouldn\'t\"."
+# both of this are correct
+```
+
+##### Embedding values in String
+
+This is to display a message(string) using the contents of a *variable* using `%s`.
+It's like a **marker** for where you want to add the value (substitution).
+
+```python
+score_1 = 1234
+score_2 = 333
+message = "Scored %s points"
+print(message % score_1)            # Scored 1234 points
+print(message % score_2)            # Score 333 points  
+```
+
+> The `%s` is a place holder for another value to be embedded into the string.
+> the `print(message % score_1)` tells python to 
+> 1. prints out message
+> 2. replaces the instance of `%s` with the value of the variable `score_1`
+
+This for now only uses 1 variable, what about multiple variables.
+Its pretty much **the same**
+
+```python
+equation = '%s plus %s equals %s'   # String using 3 variables
+num_a = 3
+num_b = 2
+
+# Im sure you can work out how this works
+print(equation % (num_a, num_b, num_a + num_b))
+```
+
+##### Multiplying string
+
+pretty self explanatory, multiply a string by `x` makes the string repeats `x` times
+
+```python
+laugh = "hue "
+laughing = laugh * 10
+print(laughing)
+
+spacing = ' ' * 15
+print('%s This is' % spacing)
+print('%s In the Middle' % spacing)
+```
+
+#### List
+
+Lists are fun, most likely, you'll encounter different types of list in programming
+
+#### Tuples
 
 
 ### Ch4
