@@ -14,4 +14,4 @@ Truly, I need to stick with 1 - 2 lang if I want to get any where
   - Python for Kids (no starch press)
   - Teach your kids to code with python (no starch press)
 - Notes down syntax I dont know, do light simple practice on syntax
-- All notes for this part of the **Game Plan** will be stored in the [`speedrun` folder](./speedrun)
+- All notes for this part of the **Game Plan** will be stored in the `speedrun` [folder](./speedrun)
