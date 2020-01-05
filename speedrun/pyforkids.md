@@ -42,6 +42,8 @@ print("Hello world")
 - Make sure you surround `Hello World` correctly with double quotes `"Hello World"`. This is to tell the `print()` command that this is a `string` to print into the shell.
 - **YER DID IT** congrats on your first line of code(?). You can try to experiment with the `print()` command, try mess up the spelling of different parts, using numbers, missing `"`
 
+#### Saving your files
+
 ### Ch2
 
 ### Ch3
