@@ -42,11 +42,77 @@ print("Hello world")
 - Make sure you surround `Hello World` correctly with double quotes `"Hello World"`. This is to tell the `print()` command that this is a `string` to print into the shell.
 - **YER DID IT** congrats on your first line of code(?). You can try to experiment with the `print()` command, try mess up the spelling of different parts, using numbers, missing `"`
 
-#### Saving your files
+#### Saving your Python Programs
 
-### Ch2
+> I wont go through this in detail
 
-### Ch3
+1. In `IDLE` Choose `File` > `New Window`, a new empty window will appear with `Utitled` in the menu bar
+2. Enter another `print()` command to print something
+3. choose `File` > `Save`, save as `hello.py`
+4. choose `Run` > `Run Module`
+
+### Ch2 Calculations and variables
+
+> Alot will be skimmed
+
+#### Calculating with python 
+
+Basicly maths, unlike the `print()` statements, which prints out what ever text inside the braces (surrounded by double quotes ofc).
+
+To do maths, you just simply type it out in the promt `>>>` and the result will be printed
+
+| Symbols | Operators |
+|---|---|
+| `+` | Add |
+| `-` | Substraction |
+| `*` | Multiplication |
+| `/` | Division |
+
+For order of operations use bracket `()`, **NOTE** unlike maths only round brackets are used `()`
+
+> **NOTE** for the coding blocks below, the lines starting with `#` are comments, which the python shell will ignore.
+> Comments are just notes you/other people note down to help better explain what the program does
+
+#### Variables
+
+**Variables** in programming describe **objects** which stores information (numbers, text, list of num/text). Have a look at this.
+
+```python
+cheese = 100
+ 
+# Here we have a variable name "cheese" assigned with the number 100
+# guess what happened when you run this
+
+print(cheese)
+```
+
+The **Equal** operator `=` is not the same in mathematics. In programming a single `=` stand for **asign**. Where the value in the RightHandSide(`100`) is **assigned** to the variable in the LeftHandSide(`cheese`)
+
+Now look at this
+
+```python
+square = 20
+circle = 10
+square = circle
+print(square)           # what does this print out
+                        # ans: 10
+```
+
+encorporating with some maths
+```python
+one = 3
+two = 1
+five = 6
+
+two + five * (one - 1)  # whats the result of this equation
+                        # ans: 1 + 6 * (3 - 1) = 14
+```
+
+You can try those out on your shell
+
+### Ch3 Strings, Lists, Tuples and Maps
+
+
 
 ### Ch4
 
