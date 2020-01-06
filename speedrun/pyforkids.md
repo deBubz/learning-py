@@ -289,13 +289,53 @@ team_comp['jungle'] = 'rammus'
 del team_comp['adc']
 ```
 
-> You cannot join differnet maps like lists
+> You cannot join different `maps` like `lists`
 
-#### Now Try This
+### Ch4 Drawing with turtles
 
-### Ch4
+basicly `import turtle` use the library to draw
 
-### Ch5
+### Ch5 if/else condition
+
+`if` this is true do this, `else` if not then do this, `elif` is if else
+
+unlike other languages
+
+- write `and` instead of `&&`
+- write `or` instead of `||`
+
+```python 
+age = 10
+if age < 15:        # pay attention to the :
+    print("yer a loli")
+elif age > 30:
+    print("yer a pedo")
+else:
+    print("what are you")
+```
+
+#### Var with no value
+
+`null` is written as `None`
+
+#### String v Numbers
+
+```python
+num = 30
+fl_str = '10.3'
+stingy = '30'
+
+# string to num
+conv_num = int(stingy)
+
+# string to float
+conv_fl = float(fl_str)
+
+# num to string
+conv_str = str(num)
+```
+
+> becareful when converting a float string `10.3` into an integer. An `exeption` will be thrown because `int()` expected an integer
 
 ### Ch6
 

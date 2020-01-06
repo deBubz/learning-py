@@ -1,12 +1,3 @@
-import turtle
-
-t = turtle.Pen()
-t.forward(50)
-
-t.forward(100)
-t.down()
-t.down()
-t.down()
-t.down()
-
-t.forward(100)
+age = 10
+if age > 1:
+    print("lmao")
