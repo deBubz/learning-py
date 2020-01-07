@@ -335,9 +335,32 @@ conv_fl = float(fl_str)
 conv_str = str(num)
 ```
 
-> becareful when converting a float string `10.3` into an integer. An `exeption` will be thrown because `int()` expected an integer
+> becareful when converting a float string `10.3` into an integer. An `exception` will be thrown because `int()` expected an integer
 
-### Ch6
+### Ch6 loops
+
+```python
+# for loops
+for x in range (0, 5):
+    print("boyo")
+
+# using x in loop
+for x in range (0, 5):
+    print("hello %s" % x)
+
+# using list (foreach??)
+for i in list_name:
+    print(i)
+```
+
+`range()` doesn't create a list of numbers, it returns an `iterator`, a type of Py object designed to work with loop
+```python
+# range() function
+print(list(range(10,15)))
+# [10, 11, 12, 13, 14, 15]
+```
+
+
 
 ### Ch7
 
