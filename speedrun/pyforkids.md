@@ -38,6 +38,12 @@
       - [Try the puzzles](#try-the-puzzles)
     - [Ch9 Built-in Functions](#ch9-built-in-functions)
     - [Ch10 Useful Modules](#ch10-useful-modules)
+      - [copy module](#copy-module)
+      - [keyword Module](#keyword-module)
+      - [random module](#random-module)
+      - [sys module](#sys-module)
+      - [time module](#time-module)
+      - [pickle module](#pickle-module)
     - [Ch11](#ch11)
     - [Ch12](#ch12)
   - [Part 2 - Bounce??](#part-2---bounce)
@@ -516,6 +522,92 @@ test.close()
 ```
 
 ### Ch10 Useful Modules
+
+#### `copy` module
+
+To make copies of objects, uisng regular asignments will just assigned the object to the new variable
+
+```python
+import copy
+
+new_obj = copy.copy(old_obj)
+# can also be used for lists, maps
+# but for lists, the objects of the lists still refers to the same objects (shallow copy)
+# use deepcopy() instead
+new_list = copy.deepcopy(old_list)
+```
+
+#### `keyword` Module
+
+```python
+import keyword
+
+# used to check new vars if its a keyword??
+keyword.iskeyword('text')
+# print list
+keyword.kwlist
+```
+
+#### `random` module
+
+```python
+import random
+# handles rng
+
+num = random.randint(1, 1000) 
+```
+
+#### `sys` module
+
+```python
+import sys
+
+# controlling the shell with the sys module
+
+# # reading stdin
+v = sys.stdin.readline()
+b = sys.stdin.readline(13)      # only read 13 chars
+# # writing to stdout
+sys.stdout.write("Hello")
+# # check py version
+sys.version
+```
+
+#### `time` module
+
+```python
+import time
+
+print(time.time())        # Unix time
+# conveting date with ASCTime
+print(time.asctime())
+t = (2020, 2, 23, 10, 30, 48, 6, 0, 0)
+print(time.asctime(t))
+# sun feb 23 10:30:48 2020
+
+#  get local time
+print(time.localtime())   # returns atuple
+# sleep
+time.sleep(1)
+```
+
+#### `pickle` module
+
+save and store date
+
+```python
+import pickle
+
+# pickling
+save_file = open('sav.dat' , 'wb')
+pickle.dump(game_data, save_file)
+save_file.close()
+
+# unpickling
+load_file = open('sav.dat', 'rb')
+loaded = pickle.load(load_file)
+load_file.close()
+```
 
 ### Ch11
 
