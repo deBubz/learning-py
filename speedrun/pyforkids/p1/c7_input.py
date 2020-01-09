@@ -13,5 +13,6 @@ def ageCheck(age):
         agePrint(age, "what are you")
 
 
-print("How old are you?")
-ageCheck(int(sys.stdin.readline()))
+# print("How old are you?")
+ageCheck(int(input("How old are you?")))
+# ageCheck(int(sys.stdin.readline()))

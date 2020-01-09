@@ -1,7 +1,2 @@
 #+TITLE: TODO list for python learning
 
-* Py for kids work through
-** Chapt 3
-*** TODO code for lists/ tuples/map ??
-** Chapt 4
-
