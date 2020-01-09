@@ -28,10 +28,16 @@
       - [Var with no value](#var-with-no-value)
       - [String v Numbers](#string-v-numbers)
     - [Ch6 loops](#ch6-loops)
-    - [Ch7](#ch7)
-    - [Ch8](#ch8)
-    - [Ch9](#ch9)
-    - [Ch10](#ch10)
+      - [For loop](#for-loop)
+      - [While loop](#while-loop)
+    - [Ch7 Function and Modules](#ch7-function-and-modules)
+      - [Using modules](#using-modules)
+    - [Ch8 Classes and Objects](#ch8-classes-and-objects)
+      - [Breaking into classes](#breaking-into-classes)
+      - [Defining class functions](#defining-class-functions)
+      - [Try the puzzles](#try-the-puzzles)
+    - [Ch9 Built-in Functions](#ch9-built-in-functions)
+    - [Ch10 Useful Modules](#ch10-useful-modules)
     - [Ch11](#ch11)
     - [Ch12](#ch12)
   - [Part 2 - Bounce??](#part-2---bounce)
@@ -374,14 +380,20 @@ conv_str = str(num)
 
 ### Ch6 loops
 
+#### For loop
+
+you know how to use loops
+
 ```python
 # for loops
 for x in range (0, 5):
     print("boyo")
 
-# using x in loop
 for x in range (0, 5):
     print("hello %s" % x)
+
+for x in range(0, len(list_name)):
+    print(list_name[x])
 
 # using list (foreach??)
 for i in list_name:
@@ -395,15 +407,115 @@ print(list(range(10,15)))
 # [10, 11, 12, 13, 14, 15]
 ```
 
+You know loops can be nested in another loop. So try implementing bubble sort by yourself ([answer](../misc/bubble.py))
 
+#### While loop
 
-### Ch7
+let say its a combination of **loops** and **if** statements
 
-### Ch8
+```python
+# while this is true, keep executing
+x = 10
+while x < 30:
+    print(x)
+    x = x + 2
+# guess how many times this executes
+```
 
-### Ch9
+### Ch7 Function and Modules
 
-### Ch10
+```python
+def funcname(arguements):
+    # do stuff here
+    # if it returns a value add the keyword
+    # if not leave out return
+    return 0
+```
+
+> You know how variables and scope works.
+> This could be a bit annoying with how its handled in py
+
+#### Using modules
+
+Import keyword
+
+```python
+# example getting input
+import sys
+
+print(sys.stdin.readline())
+```
+
+> Maybe try the puzzles?? ch4-7
+
+### Ch8 Classes and Objects
+
+#### Breaking into classes
+
+Lets try this
+
+```python
+# class declaration
+class Things:
+  pass
+
+# children class
+class Inanimate(Things):
+  pass
+
+class Animate(Things):
+  pass
+
+# # instantiate a class
+object_name = Animate()
+```
+
+#### Defining class functions
+
+Just do it inside the scope of the class
+
+ok you should be able to read and understand [the class example](pyforkids/p1/c8_classes.py)
+
+#### Try the puzzles
+
+### Ch9 Built-in Functions
+
+```python
+# Absolute
+abs(10)       # 10
+abs(-10)      # 10
+
+# Bool
+bool(19)      # true
+bool(0)       # false
+bool(-100)    # false
+
+# dir - returns information about anything
+# display functions for a list value
+dir(['a', 'short'. 'list'])
+
+# also
+help()        # return documentation
+
+# eval - run the expressions 
+# often used to run user input without pasrsing
+eval()
+
+# exec - like eval but to run multilines
+exec()
+
+# open - open files
+test = open('dir')
+testing = test.read()
+print(testing)
+
+# writing 
+test = open('dir', 'w')
+test.write('input')
+test.close()
+```
+
+### Ch10 Useful Modules
 
 ### Ch11
 
