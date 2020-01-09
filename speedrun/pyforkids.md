@@ -2,6 +2,41 @@
 
 ## Table of Contents
 
+- [Python for Kids](#python-for-kids)
+  - [Table of Contents](#table-of-contents)
+  - [Part 1 - Learning to program](#part-1---learning-to-program)
+    - [Ch1 Intro](#ch1-intro)
+      - [Installation](#installation)
+      - [Starting](#starting)
+      - [Saving your Python Programs](#saving-your-python-programs)
+    - [Ch2 Calculations and variables](#ch2-calculations-and-variables)
+      - [Calculating with python](#calculating-with-python)
+      - [Variables](#variables)
+    - [Ch3 Strings, Lists, Tuples and Maps](#ch3-strings-lists-tuples-and-maps)
+      - [String](#string)
+        - [Some problems with strings](#some-problems-with-strings)
+        - [Embedding values in String](#embedding-values-in-string)
+        - [Multiplying string](#multiplying-string)
+      - [List](#list)
+        - [Adding to list](#adding-to-list)
+        - [Removing from list](#removing-from-list)
+        - [Arithmetics in lists](#arithmetics-in-lists)
+      - [Tuples](#tuples)
+      - [Map](#map)
+    - [Ch4 Drawing with turtles](#ch4-drawing-with-turtles)
+    - [Ch5 if/else condition](#ch5-ifelse-condition)
+      - [Var with no value](#var-with-no-value)
+      - [String v Numbers](#string-v-numbers)
+    - [Ch6 loops](#ch6-loops)
+    - [Ch7](#ch7)
+    - [Ch8](#ch8)
+    - [Ch9](#ch9)
+    - [Ch10](#ch10)
+    - [Ch11](#ch11)
+    - [Ch12](#ch12)
+  - [Part 2 - Bounce??](#part-2---bounce)
+  - [Part 3 - not gonna write that title](#part-3---not-gonna-write-that-title)
+
 ## Part 1 - Learning to program
 
 ### Ch1 Intro
