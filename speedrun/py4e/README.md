@@ -19,3 +19,16 @@ print(a**b)         # exponents
 print(a//b)         # floor?
 ```
 
+[chapter 2 exercises](code/02variable.py)
+
+## 03 conditional statements
+
+### `try` and `except` for exeptions
+
+```python
+try:
+    # code
+except:
+    # if try breaks
+```
+
