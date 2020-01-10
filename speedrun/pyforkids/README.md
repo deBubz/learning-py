@@ -44,10 +44,6 @@
       - [sys module](#sys-module)
       - [time module](#time-module)
       - [pickle module](#pickle-module)
-    - [Ch11](#ch11)
-    - [Ch12](#ch12)
-  - [Part 2 - Bounce??](#part-2---bounce)
-  - [Part 3 - not gonna write that title](#part-3---not-gonna-write-that-title)
 
 ## Part 1 - Learning to program
 
@@ -155,7 +151,7 @@ two + five * (one - 1)  # whats the result of this equation
                         # ans: 1 + 6 * (3 - 1) = 14
 ```
 
-You can try those out on `IDLE` the python shell, or run [this](./pyforkids/p1/chapt1.py)
+You can try those out on `IDLE` the python shell, or run [this](../pyforkids/p1/chapt1.py)
 
 ### Ch3 Strings, Lists, Tuples and Maps
 
@@ -413,7 +409,7 @@ print(list(range(10,15)))
 # [10, 11, 12, 13, 14, 15]
 ```
 
-You know loops can be nested in another loop. So try implementing bubble sort by yourself ([answer](../misc/bubble.py))
+You know loops can be nested in another loop. So try implementing bubble sort by yourself ([answer](../../misc/bubble.py))
 
 #### While loop
 
@@ -480,7 +476,7 @@ object_name = Animate()
 
 Just do it inside the scope of the class
 
-ok you should be able to read and understand [the class example](pyforkids/p1/c8_classes.py)
+ok you should be able to read and understand [the class example](./p1/c8_classes.py)
 
 #### Try the puzzles
 
@@ -608,14 +604,4 @@ load_file = open('sav.dat', 'rb')
 loaded = pickle.load(load_file)
 load_file.close()
 ```
-
-### Ch11
-
-### Ch12
-
----
-
-## Part 2 - Bounce??
-
-## Part 3 - not gonna write that title
 
