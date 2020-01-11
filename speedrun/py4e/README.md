@@ -32,3 +32,26 @@ except:
     # if try breaks
 ```
 
+## 04 function
+
+### `math` module
+
+```python
+import math
+
+math.sin(4)
+math.log10(1)
+```
+
+## 05 Iteration
+
+```python
+# infinite input different way
+while True:
+    line = input("> ")
+    if line == 'x':
+        break
+    print(line)
+
+print("ending")
+```
