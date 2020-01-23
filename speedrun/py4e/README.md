@@ -360,15 +360,165 @@ print(a)        # [3, 2, 3]
 ## 10 Dictionaries
 
 `dictionary` are similar to `list`. BUT in List, each element are identified by an index number.
-in Dictionaries, each element are associated wit a **key** value
+in Dictionaries, each element are associated wit a **key** value.
+
+> The association of akey and a value is called `key-value` pair or an `item`
+
+All the examples in this sections will be dictionaries of `English : Spanish` words so both keys and values will be strings
+
+```python
+# ditct() creates adictionary without items
+translate = dict()
+
+# adding an item with a key
+# key is one 
+# value is uno
+translate['one'] = 'uno'
+```
+
+> The item order of a *dict* at creation does *not matter*.
+> If you print out the *dict* it will not return the **expected order**. 
+> The item order is **unpredictable**
+
+The `in` operator for *dict* will tell you if its a **key** in the dict.
+Using values will **return `False`**
+
+```python
+'one' in translate      # True
+'uni' in translate      # False
+
+# in uses a different algorithm for list and dicts
+# List uses a linear search algo    O(n)
+# Dict uses a hash table            O(logn)
+```
+
+[more on hash tables](https://en.wikipedia.org/wiki/Hash_table)
+
+> Write program that reads the word in `word.txt` and store them as keys in a dict and it doesnt matter what the values are
+>
+> Then use  `in` to check the keys
 
 ### Dictionary as a set of counters
 
+Suppose given a string and you want to count how many each letter appears, Theres are several ways to achieve this
+
+> 1. create 26 vars, traverse the string and for each corresponding char, increment the var
+> 2. create a list of elem, where each char is correspond with an index number. increment the matching element
+> 3. create dict with chars as keys. When first see the word, add in the dict and increment the matching key-char 
+
+From this its clear that using a *dict* will be fastest
+
+This is what it looks like
+
+```python
+word = "bird up"
+chardict = dict()
+
+for chars in word:
+    if c not in chardict:       # not in dict, add with counter 1
+        chardict[c] = 1
+    else:                       # exist, increment
+        chardict[c] = chardict[c] + 1
+```
+
+#### `dict.get(key, value)`
+
+`get()` operator takes a key and **default value**. If the key **exist** -> returns the corresponding value. Else returns the **default value**
+
+```python
+counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
+print(counts.get('jan', 0))         # 100
+print(counts.get('tim', 0))         # 0
+```
+
+with this we can more precisely write the char count program before. `get` method automaticly handles the case where a key is not a dict.
+
+```python
+word = 'bird up'
+d = dict()
+
+for chars in word:
+    d[chars] = d.get(c, 0) + 1
+```
+
 ### Dictionaries and files
+
+Anothe use is to count word occurance in text file. Lets try an extraction of *Romeo and Juliet*
+
+```md
+But soft what light through yonder window breaks
+It is the east and Juliet is the sun
+Arise fair sun and kill the envious moon
+Who is already sick and pale with grief
+```
+
+So we need 2 `for` loops (go throuh each line, go through each word)
+
+```python
+fhand = open('file.txt')
+counts = dict()
+
+for line in fhand:
+    words = line.strip().split()
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
+```
 
 ### Looping and Dictionaries
 
+Just some patterns looping through the dict
+
+```python   
+# show keys with count > 10
+counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
+for key in counts:
+    if counts[key] > 10 :
+        print(key, counts[key])
+```
+
+```python
+# print alphabetized key
+counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
+lst = list(counts.keys())
+print(lst)
+lst.sort()
+for key in lst:
+    print(key, counts[key])
+```
+
 ### Advanced text Parsing
+
+so removing punctuation. we can use `lower`, `punctuation`, and `translate`
+
+> translate is pretty weird
+>
+> `line.translate(str.maketrans(fromstr, tostr, deletestr))`
+>
+> Replace the characters in `fromstr` with the character in the same position in `tostr` and delete all characters that are in `deletestr`. The `fromstr` and `tostr` can be empty strings and the `deletestr` parameter can be omitted.
+
+we wont specify `tostr` but use `deletestr` params to delete all punctuation.
+
+We get the list of punctuation from python `string.punctiation`
+
+```python
+import string
+
+fhand = open("filename")
+counts = dict()
+
+for line in fhand:
+    line = line.rstrip().lower()
+    line = line.translate(line.maketrans('', '', string.punctuation))
+    words = line.split()
+    for word not in counts:
+        counts[word] = 1
+    else:
+        counts[word] += 1
+
+# care this might be py2.0
+```
+
+> try the excercises
 
 ---
 
