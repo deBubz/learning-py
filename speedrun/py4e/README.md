@@ -5,7 +5,7 @@ But this README will only contains some in fo
 
 ---
 
-## 02 variables
+## 03 variables
 
 ### Some operators
 
@@ -25,7 +25,7 @@ print(a//b)         # floor?
 
 ---
 
-## 03 conditional statements
+## 04 conditional statements
 
 ### `try` and `except` for exeptions
 
@@ -38,7 +38,7 @@ except:
 
 ---
 
-## 04 function
+## 05 function
 
 ### `math` module
 
@@ -51,7 +51,7 @@ math.log10(1)
 
 ---
 
-## 05 Iteration
+## 06 Iteration
 
 ```python
 # infinite input different way
@@ -66,7 +66,7 @@ print("ending")
 
 ---
 
-## 06 Strings
+## 07 Strings
 
 strings are sequences of chars
 
@@ -99,7 +99,7 @@ b.strip()           # ol
 ```
 ---
 
-## 07 Files
+## 08 Files
 
 ### Persistence
 
@@ -206,7 +206,7 @@ fhandler.close()
 
 ---
 
-## 08 Lists
+## 09 Lists
 
 like strings(sequence of char), `list` are a sequence of mixed variables(including other lists) enclosed in `[]`
 
@@ -257,6 +257,7 @@ t.append('d')
 t1.extends(t2)
 # arrange from low to high
 t.sort()
+# python uses timsort
 ```
 
 ### Deleting elements
@@ -264,19 +265,134 @@ t.sort()
 multiple ways of doing this
 
 ```python
+# removes element at index and return removed element
+li.pop(2)               # returns li[2] before removed
 
+# simply remove the value
+del li[2]
+# remove more than one
+del li[2:3]
+
+# knows the elemtn but not the index
+li.remove("cheese")
 ```
 
 ### List and functions
 
+List also contains some built in functions to let you quickly look through list without writing loops
+
+```python 
+# return length
+len(lis)
+
+# returns highest
+max(lis)
+
+# returns lowest
+min(lis)
+
+# returns total
+sum(nums)
+```
+
 ### Lists and strings
 
-### Parsing Line
+Strings are **sequence of characters**, and lists are sequence of **value**. BUT list of chars are not the same as string.
+
+```python
+# split string into list of char
+s = "spam"
+t = list(s)
+
+# split sentence into list of word
+lis = sentence.split()
+
+# use an arg for split() to split to string by specific seperator
+lis = sentence.split(',')
+
+# join list of strings
+full_sent = " "
+full_sent.join(lists)
+# this case join all strings in lists seperated by a space
+```
 
 ### Objects and values
 
+This section talk `very lightly` about assignments, reference, pointers?
+
+```python
+a = 'banana'
+b = 'banana'
+
+# even though both are of the same string
+# a and b referes to different objects
+# to check if a and b refer 2 different objects use is operator
+a is b
+
+# same - True
+# different - False
+```
+
 ### Aliasing
+
+> Refer to previous section
+
+to use another variable to refer to a specific object, just use assignment
+
+```python
+a = [1 ,2, 3]
+b = a
+b is a          # true
+
+# then b can be used to mutate a
+b[0] = 3
+print(a)        # [3, 2, 3]
+```
 
 ### List Args
 
+> Just stuff on good/bad way to use function args
+
+> Also do the exercises and read the debugging section
+
 ---
+
+## 10 Dictionaries
+
+`dictionary` are similar to `list`. BUT in List, each element are identified by an index number.
+in Dictionaries, each element are associated wit a **key** value
+
+### Dictionary as a set of counters
+
+### Dictionaries and files
+
+### Looping and Dictionaries
+
+### Advanced text Parsing
+
+---
+
+## 11 Tuples
+---
+
+## 12 Regex
+
+---
+
+## 13 Network Programming
+
+---
+
+## 14Using Web Services
+
+---
+
+## 15 OOP
+
+---
+
+## 16 Database
+
+---
+
+## 17 Data Visualization
