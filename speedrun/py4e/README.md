@@ -11,7 +11,7 @@ But this README will only contains some in
 
 ---
 
-## 03 variables
+## 02 variables
 
 ### Some operators
 
@@ -25,13 +25,18 @@ print(a/b)
 print(a*b)
 print(a**b)         # exponents
 print(a//b)         # floor?
+
+type(a)             # <class 'int'>
+c = input("prompt") # assign input to c
 ```
 
-[chapter 2 exercises](code/02variable.py)
+[chapter 2 exercises](.code/02variable.py)
+
+[chapter 2 assesed code](.assessed/03ex.py)
 
 ---
 
-## 04 conditional statements
+## 03 conditional statements
 
 ### `try` and `except` for exeptions
 
@@ -42,9 +47,17 @@ except:
     # if try breaks
 ```
 
+[chapter 3 exercises](.code/03condition.py)
+
+[chapter 3 assesed code](.assessed/03condition.py)
+
+> These are the same ???? 
+
+> Maybe try to clean it up
+
 ---
 
-## 05 function
+## 04 function
 
 ### `math` module
 
@@ -54,6 +67,12 @@ import math
 math.sin(4)
 math.log10(1)
 ```
+
+[chapter 4 exercises](.code/04func.py)
+
+[chapter 4 assesed code](.assessed/04func.py)
+
+> not much here
 
 ---
 
@@ -69,6 +88,25 @@ while True:
 
 print("ending")
 ```
+
+### using `continue`
+
+`continue` is to end the current iteration(care of scope) and jump to the next iteration. 
+
+> often used together with a condition `if` statement to do something special
+
+```python
+while True:
+    line = input('> ')
+    if line[0] == '#':
+        continue
+    if line == 'done':
+        break
+    print(line)
+print('Done!')
+```
+
+[Chapt 05 exercises](../py4e/code/05loopy.py)
 
 ---
 
