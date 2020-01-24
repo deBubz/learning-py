@@ -1,7 +1,13 @@
 # Python for Everyone
 
 Notes following the course (here)[https://www.py4e.com]
-But this README will only contains some in fo 
+But this README will only contains some in
+
+> Contains all my notes from lesson 03-17
+
+---
+
+## Table of Contents
 
 ---
 
@@ -370,8 +376,7 @@ All the examples in this sections will be dictionaries of `English : Spanish` wo
 # ditct() creates adictionary without items
 translate = dict()
 
-# adding an item with a key
-# key is one 
+# adding an item with a keyhttps://www.twitch.tv/evo
 # value is uno
 translate['one'] = 'uno'
 ```
