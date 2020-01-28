@@ -566,6 +566,66 @@ for line in fhand:
 ---
 
 ## 11 Tuples
+
+`Tuples` are very much similar to lists but they are **Immutable**.
+Tuples are also **comparable** and **hashable** so we can sort lists of them and use as key values
+
+```python
+# basic tuple
+t = ('a', 3, c)
+# single elem tuple
+rt = ('a',)             # Note the comma
+# empty tuple
+et = tuple()
+```
+
+> Also like a List you can select elem by index, splice `tuples`
+
+> **NOTE**: you cant modify `tuple` elemts but you can replace it
+
+```python
+t = ('a', 'b', 'c')
+t = ('A',) + t[1:]
+# Assign t with A + tuple from index 1-end
+
+print(t)
+# ('A', 'b', 'c')
+```
+
+### Comparing Tuple
+
+Comparison operators `<`, `>`, `==` works with sequences (`tuples`, `string`, `list` and `dict`?). It works by comparing the corresponding index between 2 sequences
+
+```python
+a = (0, 1, 3)
+b = (0, 2, 4)
+
+print( a > b )      # False
+```
+
+The `sort` func works the same way **as above**.
+This feature allows it self to work as part of the `DSU` pattern
+
+- **Decorate**
+- **Sort**
+- **Undecorate**
+
+```python
+txt = 'but soft what light in yonder window breaks'
+words = txt.split()
+t = list()
+
+# Decorate
+for word in words:
+    t.append((len(word), word))
+# Sort
+t.sort(reverse=True)
+# Undecorate
+res = list()
+for length, word in t:
+    res.append(word)
+```
+
 ---
 
 ## 12 Regex
