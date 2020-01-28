@@ -9,6 +9,58 @@ But this README will only contains some in
 
 ## Table of Contents
 
+- [Python for Everyone](#python-for-everyone)
+  - [Table of Contents](#table-of-contents)
+  - [02 variables](#02-variables)
+    - [Some operators](#some-operators)
+  - [03 conditional statements](#03-conditional-statements)
+    - [`try` and `except` for exeptions](#try-and-except-for-exeptions)
+  - [04 function](#04-function)
+    - [`math` module](#math-module)
+  - [05 Iteration](#05-iteration)
+    - [using `continue`](#using-continue)
+  - [06 Strings](#06-strings)
+  - [07 Files](#07-files)
+    - [Persistence](#persistence)
+    - [Opening files](#opening-files)
+    - [Text files and lines](#text-files-and-lines)
+    - [Reading files](#reading-files)
+    - [Searching through a file](#searching-through-a-file)
+    - [Letting the user choose the file name](#letting-the-user-choose-the-file-name)
+    - [Using `try`, `exept`, and `open`](#using-try-exept-and-open)
+    - [Writing files](#writing-files)
+  - [08 Lists](#08-lists)
+    - [Traversing a list](#traversing-a-list)
+    - [List operations](#list-operations)
+    - [Slice Operators](#slice-operators)
+    - [List methods](#list-methods)
+    - [Deleting elements](#deleting-elements)
+    - [List and functions](#list-and-functions)
+    - [Lists and strings](#lists-and-strings)
+    - [Objects and values](#objects-and-values)
+    - [Aliasing](#aliasing)
+    - [List Args](#list-args)
+  - [09 Dictionaries](#09-dictionaries)
+    - [Dictionary as a set of counters](#dictionary-as-a-set-of-counters)
+      - [`dict.get(key, value)`](#dictgetkey-value)
+    - [Dictionaries and files](#dictionaries-and-files)
+    - [Looping and Dictionaries](#looping-and-dictionaries)
+    - [Advanced text Parsing](#advanced-text-parsing)
+  - [10 Tuples](#10-tuples)
+    - [Comparing Tuple](#comparing-tuple)
+    - [Tuple Assignment](#tuple-assignment)
+    - [Dictionaries and Tuples](#dictionaries-and-tuples)
+    - [Multiple assignment with dictionaries](#multiple-assignment-with-dictionaries)
+    - [The most common words](#the-most-common-words)
+    - [Using `tuples` as keys in `dict`](#using-tuples-as-keys-in-dict)
+    - [Sequences hmmm](#sequences-hmmm)
+  - [12 Regex](#12-regex)
+  - [13 Network Programming](#13-network-programming)
+  - [14Using Web Services](#14using-web-services)
+  - [15 OOP](#15-oop)
+  - [16 Database](#16-database)
+  - [17 Data Visualization](#17-data-visualization)
+
 ---
 
 ## 02 variables
@@ -76,7 +128,7 @@ math.log10(1)
 
 ---
 
-## 06 Iteration
+## 05 Iteration
 
 ```python
 # infinite input different way
@@ -110,7 +162,7 @@ print('Done!')
 
 ---
 
-## 07 Strings
+## 06 Strings
 
 strings are sequences of chars
 
@@ -143,7 +195,7 @@ b.strip()           # ol
 ```
 ---
 
-## 08 Files
+## 07 Files
 
 ### Persistence
 
@@ -250,7 +302,7 @@ fhandler.close()
 
 ---
 
-## 09 Lists
+## 08 Lists
 
 like strings(sequence of char), `list` are a sequence of mixed variables(including other lists) enclosed in `[]`
 
@@ -401,7 +453,7 @@ print(a)        # [3, 2, 3]
 
 ---
 
-## 10 Dictionaries
+## 09 Dictionaries
 
 `dictionary` are similar to `list`. BUT in List, each element are identified by an index number.
 in Dictionaries, each element are associated wit a **key** value.
@@ -565,7 +617,7 @@ for line in fhand:
 
 ---
 
-## 11 Tuples
+## 10 Tuples
 
 `Tuples` are very much similar to lists but they are **Immutable**.
 Tuples are also **comparable** and **hashable** so we can sort lists of them and use as key values
@@ -606,9 +658,9 @@ print( a > b )      # False
 The `sort` func works the same way **as above**.
 This feature allows it self to work as part of the `DSU` pattern
 
-- **Decorate**
-- **Sort**
-- **Undecorate**
+- **Decorate** create a list of tuples with the sort key **before** the element from sequence
+- **Sort** sort the tuple with `sort`
+- **Undecorate** extracting the sorted element 
 
 ```python
 txt = 'but soft what light in yonder window breaks'
@@ -626,7 +678,121 @@ for length, word in t:
     res.append(word)
 ```
 
----
+### Tuple Assignment
+
+OK wtf, `tuples` allow **Left side** assignment. Allows you to assign more than one value at a time on the left side..
+
+```python
+m = ["big", "snake"]
+x,y = m
+
+print(x)        # big
+print(y)        # snake
+
+# this work because its the python translate to this
+x = m[0]
+y = m[1]
+
+# for tuples
+(x, y) = m
+```
+
+WTF you can do this to swap 2 variables
+
+```python
+a, b = b, a
+```
+
+> **Both Side** are `tuples`
+>
+> Right is a tuple of expressions, where each are assigned to the respective var on the left side.
+> All the expressions on the right side are evaluated before any assignment
+
+> **NOTE**: number of value of bothsides must be the same
+
+> **MORE**: can be any type of sequence
+
+### Dictionaries and Tuples
+
+dictionaries has a method `item()` that returns alist of tupes where each is a `key-value` pair
+
+```python
+d = {'a': 10, 'b':1}
+t = list(d.items())
+
+print(t)
+#   [('b', 1), ('a', 10)]
+```
+
+Its **not ordered** since its from a dictionary. BUT, now its sortable since its a list of tuples
+
+### Multiple assignment with dictionaries
+
+Combining `items`, [tuple assignment](#tuple-assignment), and `for` you can do this
+
+```python
+for key, val in list(d.items()):
+    print(val, key)
+```
+
+This works because `items()` returns a list of tuples, while `key-value` are assigned to the `key-value` pair from the list.
+
+### The most common words
+
+Lets reconsider the *Romeo and Juiliet* `word counter`, We'll rewrite it to count the most comon words
+
+```python
+import string
+
+handl = open('romeo.txt')
+counts = dict()
+
+for line in handl:
+    # remove punctuations
+    line = line.translate(str.maketrans('', '', string.punctuation))
+    words = line.lower().split()
+    for word in words:
+        if word not in counts:
+            counts[word] = 1
+        else:
+            counts[word] += 1
+
+# decorate
+lst = list()
+for key, val in list(counts.items()):
+    lst.append(val, key)
+
+# sort
+lst.sort(reverse = True)
+
+# undecorate
+for key, val in lst:
+    print(key, val)
+```
+
+### Using `tuples` as keys in `dict`
+
+Since `tuple` are `hashable`, we could use tuples as a composite key for dictionaries
+
+Assuming for a phone book which maps `fname`, and `lname` to phone numbers. Assume all the vars are defined, We could write the `dict assignment` statement as
+
+```python
+directory[last, first] = num
+
+# then use this to traverse
+for last, first in directory:
+    print(first, last, directory[last, first]) = num
+```
+
+### Sequences hmmm
+
+> This talks about the properties and usage of sequences such as `string`, `tuples`, `list`
+>
+> Focuses alot about the immutability of each type of sequences. [read more](https://www.py4e.com/html3/10-tuples#sequences-strings-lists-and-tuples---oh-my)
+
+Chapt 10 Tuples - Done
+
+> **NOTE** Try the exercises
 
 ## 12 Regex
 
