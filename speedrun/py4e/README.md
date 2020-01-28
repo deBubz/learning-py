@@ -55,6 +55,12 @@ But this README will only contains some in
     - [Using `tuples` as keys in `dict`](#using-tuples-as-keys-in-dict)
     - [Sequences hmmm](#sequences-hmmm)
   - [12 Regex](#12-regex)
+    - [Characters matching in regex](#characters-matching-in-regex)
+    - [Extracting data using regex](#extracting-data-using-regex)
+    - [Combining searching and extracting](#combining-searching-and-extracting)
+    - [Escape Chars](#escape-chars)
+    - [Regex summary](#regex-summary)
+    - [Unix Bonus](#unix-bonus)
   - [13 Network Programming](#13-network-programming)
   - [14Using Web Services](#14using-web-services)
   - [15 OOP](#15-oop)
@@ -795,6 +801,52 @@ Chapt 10 Tuples - Done
 > **NOTE** Try the exercises
 
 ## 12 Regex
+
+Lets go `regex` or rather `regular expressions`
+
+So `py` does have a native library to handle `regex`, heres the [docs](https://docs.python.org/3/library/re.html)
+
+Heres how it works in the simplest form with `search()`
+
+```python
+import re
+
+handl = open('file')
+
+for line in handl:
+    line = line.strip()
+    if re.search('From:', line):
+        print(line)
+
+# why does it seem so simple
+```
+
+The `search()` method will only show lines that matches the `str` in the args. Not accualy real `regex` since `line.find()` is also exactly the same.
+
+So to truely use regex, change the args to:
+
+```python
+# ...
+if re.search('^From:', line):
+    print(line)
+
+# this is equivalent with startswith('From')
+# the ^ means starts with
+```
+
+### Characters matching in regex
+
+### Extracting data using regex
+
+### Combining searching and extracting
+
+### Escape Chars
+
+### Regex summary
+
+### Unix Bonus
+
+
 
 ---
 
