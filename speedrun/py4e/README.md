@@ -836,6 +836,37 @@ if re.search('^From:', line):
 
 ### Characters matching in regex
 
+So this will show how regex really works, also heres [a simple regex key legend](regex_hint.md)
+
+example the regex `F..m:` will match any string starts with `F` following by any 2 char then `m:`
+
+```python
+import  re
+hand = open('file.txt')
+for line in hand:
+    line = line.strip()
+    if re.search('^F..m:', line):
+        print(line)
+
+# same as
+# match any string starts with F..m
+```
+
+This is really powerful when combined with the ability to indicate that a char can be repeated multiple times by using `*` or `+` in the regex.
+These means that instead of matching a single char in the string. they match 0 or more(`*`) or one or more(`+`)
+
+```python
+# ...
+    if re.search('^From:.+@', line)
+# matches From 
+# following by one or more any char 
+# follow by @
+```
+
+> Something `wildcard`
+
+
+
 ### Extracting data using regex
 
 ### Combining searching and extracting
