@@ -865,19 +865,107 @@ These means that instead of matching a single char in the string. they match 0 o
 
 > Something `wildcard`
 
-
+> Also look up greedy search??
 
 ### Extracting data using regex
 
+to extract date from a string in python use `findall()` to extract the substrings that matches a `regex`. Lets try the email string again
+
+This is a faster way than writing multiple line splitting and splicing each line.
+
+```python
+import re
+s = 'A message from csev@umich.edu to cwen@iupui.edu about meeting @2PM'
+lst = re.findall('\S+@\S+', s)
+
+print(lst)
+['csev@umich.edu', 'cwen@iupui.edu']
+```
+
+> `findall()` search the string and returns a list that matches the `regex`
+
+
+> `\S+@+\S` the `\S+` matches any non-white space string, then the `@` then again any `\S+` non-whitespace char
+
+In the list there are some emails are enclosed with `<>` so lets declare what we're only interested in alpha numeric characters
+
+```regex
+[a-zA-Z0-9]\S*@\S*[a-zA-Z]
+```
+
+To translate this:
+
+1. Starts with a single lower and uppercase chars, 0-9 `[a-zA-Z0-9]`
+2. Followed by non-blank `\S*`
+3. `*` instead of `+` to indicate 0 or more non-blank since its already starts with a char at **1**
+4. same thing above
+
+Here is it in action
+
+```python
+import re
+hand = open('file.txt')
+
+for line in hand:
+    line.strip()
+    x = re.findall('[a-zA-Z0-9]\S*@\S*[a-zA-Z]', line)
+    if len(x) > 0:
+        print(x)
+```
+
 ### Combining searching and extracting
+
+If we want to find numbers from string such as `X-DSPAM-Confidence: 0.8475`
+We can use this regex
+
+```python
+s = '^X-.*: [0-9.]+
+
+# starting with X-
+# match any char 0 or more time till :
+# match any number 0-9 and . one or more times
+```
+
+While this will return all lines that matches the string above, we could then use `split()` to get the numbers. We could use regex to also **parse** the line at the sametime
+
+Parentheses `()` are another special char in `regex`. When use with `findall()`, parens indicate while you want the whole `regex` to match but are only interested in **extracting the numbers**
+
+```python
+x = re.findall('^X\S*: ([0-9.]+)', line)
+```
+
+> The content we extracted is still a **string** and needed to be coverted to be used if you wish
+
 
 ### Escape Chars
 
+Since there are a few **special characters** used in `regex` to match the begining/ end of line, we have a way to specify that we want to match that character.
+
+just use the escape character `\`
+
+```python
+import re
+x = "we recieved $10.00 for cookies"
+y = re.findall('\$[0-9.]+', x)
+
+# $10.00
+```
+
 ### Regex summary
+
+Theres some stuff, look at [the quick regex guide](regex_hint.md)
 
 ### Unix Bonus
 
+Oh shit you can `regex` along with `grep` in this format
 
+```bash
+grep <regex> file
+```
+
+> `grep` does not support non-blank char `\S` so you might need to use the set notation
+
+**Try the exercises later**
 
 ---
 
