@@ -1,11 +1,18 @@
 # regex assessment
 
 import re
-import os
 
-f_name = '../data/regex_sum_42.txt'
-print("opening", f_name)
+f_name = '../data/regex_sum_354193.txt'
 hand = open(f_name)
+total = 0
 
 for line in hand:
-    print(line)
+   line.strip()
+   x = re.findall('[0-9]+', line)
+   if len(x) > 0:
+       for num in x:
+           total = total + int(num)
+
+print(total)
+
+# Try the just for fun one??
