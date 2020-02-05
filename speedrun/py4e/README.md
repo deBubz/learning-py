@@ -66,6 +66,11 @@ But this README will only contains some in
     - [Simple Browser](#simple-browser)
     - [Image over HTTP](#image-over-http)
     - [Retrieving webpages with `urllib`](#retrieving-webpages-with-urllib)
+    - [Reading binary files using `urllib`](#reading-binary-files-using-urllib)
+    - [Parsing HTML and scraping the web](#parsing-html-and-scraping-the-web)
+    - [Parsing HTML using regex](#parsing-html-using-regex)
+    - [Parsing HTML using `BeautifulSoup`](#parsing-html-using-beautifulsoup)
+    - [Unix bonus](#unix-bonus-1)
   - [14Using Web Services](#14using-web-services)
   - [15 OOP](#15-oop)
   - [16 Database](#16-database)
@@ -1068,18 +1073,123 @@ We can slowdown the rate of calling `recv()` using `time.sleep()`. This way so t
 
 ### Retrieving webpages with `urllib`
 
+While we can manually send and recieve data over `HTTP` using `socket`, theres a simpler way to do this using `urllib`
 
+`urllib` can treat your page like a file, Just indicate what you webpage you want to recieve and `urllib` candles all the HTTP protocol and header details
 
-###
+```python
+# equivalent to using socket
+import urllib.request
 
-###
+hand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+for line in hand:
+    print(line.decode().strip())
+```
 
-###
+> **Difference** is `urllib` will not show/consume the **header**
 
-###
+### Reading binary files using `urllib`
 
-###
+**Binary files** are non-text files such as images, videos. The data of these files are generally not useful to print out as text, but you can **make a copy** ofa url to a local file using `urllib`
 
+```python
+import urllib.error, urllib.request, urllib.parse
+
+img = urllib.request.urlopen('http://data.pr4e.org/cover3.jpg').read()
+hand = open('cover3.jpg', 'wb')
+hand.write(img)
+hand.close()import urllib.request, urllib.parse, urllib.error
+ 
+img = urllib.request.urlopen('http://data.pr4e.org/cover3.jpg').read()
+hand = open('cover3.jpg')
+```
+
+> the program stores data returned from the network in the variable `img`.
+> Then you opens and write that data into the **write-only** (`wb`) file named `cover3.jpg`
+
+However, this will cause trouble if the file is relatively large (video) when your computer runs out of memory. To prevent this, its better to split and recieve that data in blocks(**buffer**) and then write each block to disk before retrieving the next block.
+
+```python
+import urllib.error, urllib.request, urllib.parse
+
+img = urllib.request.urlopen('http://data.pr4e.org/cover3.jpg')
+hand = open('cover3.jpg', 'wb')
+size = 0
+
+while True:
+    info = img.read(100000)
+    if len(info) < 1:
+        break
+    size = size + len(info)
+    hand.write(info)
+
+print(size, 'char coppied')
+hand.close()
+```
+
+### Parsing HTML and scraping the web
+
+A common use of `urllib` is to scrape the web. **Web scraping** is to retrieve data from the pages, examining the data looking for patterns
+
+### Parsing HTML using regex
+
+lets try to extact the link url from this using this regex `href="http[s]?://.+?"`
+
+```html
+<h1>The First Page</h1>
+<p>
+If you like, you can switch to the
+<a href="http://www.dr-chuck.com/page2.htm">
+Second Page</a>.
+</p>
+```
+
+The regex looks for:
+
+1. string starts with `href="http://` or `href="https://`
+2. then one or more chars `.+?`
+3. `[s]?` matches 0 or more in the set, so `http` or `https`
+
+see the [code here](parsinghtml.py)
+
+> the `ssl` lib allows the program to access website that strictly enforce `HTTPS`.
+> `read()` returns HTML source code as a byte object instead of returning an `HTTPResponse` obj.
+
+Regular `regex` works fine when your page is well formatted and predictable. **BUT** since theres a lot of 'broken' html pages out there, a solution only using regex might miss out some data, or returns bad data.
+
+This can be solve by using a robust HTML parsing library
+
+### Parsing HTML using `BeautifulSoup`
+
+OK so we'll use `ursllib` to read and use `BeautifulSoup` to extract `href` attributes from the `<a>` t
+
+[code here](soup.py)
+
+The program prompt for a web url, then opens the page and return the value of `href` attributes of the `anchor` t
+
+Heres an update to the code to pull out other parts of each t:
+
+```python
+# ...
+tags = soup('a')
+for t in tags:
+    # look at parts of the t
+    print('TAG', t)
+    print('URL', t.get('href', None))
+    print('Contents', t.contents[0])
+    print('Attr', t.attrs)
+# ...
+```
+
+to know more youre, better off experimenting and reading the doccuments of the parsers.
+
+the built in html parser python has is `html.parser`
+
+### Unix bonus
+
+oh its just `curl` and `wget`
+
+Ples do the exercises
 
 ---
 
