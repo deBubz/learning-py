@@ -62,6 +62,10 @@ But this README will only contains some in
     - [Regex summary](#regex-summary)
     - [Unix Bonus](#unix-bonus)
   - [13 Network Programming](#13-network-programming)
+    - [HTTP](#http)
+    - [Simple Browser](#simple-browser)
+    - [Image over HTTP](#image-over-http)
+    - [Retrieving webpages with `urllib`](#retrieving-webpages-with-urllib)
   - [14Using Web Services](#14using-web-services)
   - [15 OOP](#15-oop)
   - [16 Database](#16-database)
@@ -970,6 +974,112 @@ grep <regex> file
 ---
 
 ## 13 Network Programming
+
+This chapter uses py to retrieve web pages uing HTTP, read and parse data
+
+###  HTTP
+
+Python has a built in library that supports HTTP, its called `socket`, this simplifies making network connections through a python program
+
+A `socket` is very similar to files, exept a single `socket` provides a 2-way connection between 2 programs. You can both **read from**(read data from the other end) and **write to**(sent to the app on the other end) the same socket
+
+### Simple Browser
+
+OK lets now try to make a connection `www.pr4e.org` and send this request `GET http://data.pr4e.org/romeo.txt HTTP/1.0`
+
+```python
+import socket
+
+mysock = socket.socket(sicket.AF_INET, socket.SOCK_STREAM)
+mysock.connect(('data.pr4e.org', 80))
+cmd = 'GET http://data.pr4ne.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()
+
+while True:
+    data = mysock.recv(512)
+    if len(data) < 1:
+        break
+    print(data.decode(), end='')
+
+mysock.close()
+```
+
+This will connect to the server port 80, send a `GET` request, following by a carriage return and newline twice `\r\n` to signify end of request.
+
+Then the `loop` after recieves data (512 char chunks) from the socket and `print()` it out untill `recv()` returns an empty string.
+
+This is the output 
+
+```txt
+HTTP/1.1 200 OK
+Date: Wed, 11 Apr 2018 18:52:55 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Last-Modified: Sat, 13 May 2017 11:22:22 GMT
+ETag: "a7-54f6609245537"
+Accept-Ranges: bytes
+Content-Length: 167
+Cache-Control: max-age=0, no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Connection: close
+Content-Type: text/plain
+
+But soft what light through yonder window breaks
+It is the east and Juliet is the sun
+Arise fair sun and kill the envious moon
+Who is already sick and pale with grief
+```
+
+The block of text is the `header` which the web server sends to describe the doc.
+One of the **requirement** while using `HTTP` is the need to send/recieve data as bytes objects instead of strings. 
+
+The socket code above uses `decode()` and `encode()` to convert string to bytes and vice versa
+
+> Next section we'll use `b''` to notify a variable should be stored as **a byte object** (equivalent with `encode()`)
+
+### Image over HTTP
+
+Consider [this program](images.py).
+When ran, this program will return image data and this header (after the image??)
+
+```txt
+...
+Header length 393
+HTTP/1.1 200 OK
+Date: Wed, 11 Apr 2018 18:54:09 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Last-Modified: Mon, 15 May 2017 12:27:40 GMT
+ETag: "38342-54f8f2e5b6277"
+Accept-Ranges: bytes
+Content-Length: 230210
+Vary: Accept-Encoding
+Cache-Control: max-age=0, no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Connection: close
+Content-Type: image/jpeg
+```
+
+As the program runs, we dont get the `5120` chars each time calling `recv()`. We get as manychar as it is sent across the network by the webserver(**depends on your network speed**) the moment of calling `recv()` 
+
+We can slowdown the rate of calling `recv()` using `time.sleep()`. This way so the server can "get ahead", sends more data before calling `recv()` again.
+
+> There is a buffer between the server making `send()` requests and our application making `recv()` request.
+> When a program runs with the delay in place, The server might fill up the **buffer** in the socket and be forced to pause untill our program starts to empty the buffer. The **pause** is called **flow control**
+
+### Retrieving webpages with `urllib`
+
+
+
+###
+
+###
+
+###
+
+###
+
+###
+
 
 ---
 

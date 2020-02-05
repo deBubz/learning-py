@@ -1,23 +1,13 @@
-# txt = 'but soft what light in yonder window breaks'
-# words = txt.split()
-# t = list()
-# for word in words:
-#     t.append((len(word), word))
+import socket
 
-# t.sort(reverse=True)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect(('data.pr4e.org', 80))
+sock.send('GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode())
 
-# res = list()
-# for length, word in t:
-#     res.append(word)
+while True:
+    data = sock.recv(512)
+    if len(data)  < 1:
+        break
+    print(data.decode(), end='')
 
-# print(t)
-# print(res)
-
-# --------------------
-a = 3
-b = 5
-
-print(a,b)
-a,b = b,a
-print(a,b)
-print(type(a))
+sock.close()
