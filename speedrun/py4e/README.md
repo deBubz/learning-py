@@ -70,7 +70,6 @@ But this README will only contains some in
     - [Parsing HTML and scraping the web](#parsing-html-and-scraping-the-web)
     - [Parsing HTML using regex](#parsing-html-using-regex)
     - [Parsing HTML using `BeautifulSoup`](#parsing-html-using-beautifulsoup)
-    - [Unix bonus](#unix-bonus-1)
   - [14Using Web Services](#14using-web-services)
   - [15 OOP](#15-oop)
   - [16 Database](#16-database)
@@ -1185,11 +1184,7 @@ to know more youre, better off experimenting and reading the doccuments of the p
 
 the built in html parser python has is `html.parser`
 
-### Unix bonus
-
-oh its just `curl` and `wget`
-
-Ples do the exercises
+> Ples do the exercises
 
 ---
 
