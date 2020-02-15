@@ -1,13 +1,13 @@
 # 02 variables exercises
 
 # # input name and print
-def e1_nameInput():
+def e2_nameInput():
     name = input("Enter your name: ")
     print("Hello %s" % name)
     print()
 
 # # Enter hour+rate and print earnings
-def e2_grossPay():
+def e3_grossPay():
     hrs = input("Enter hours: ")
     rate = input("Enter rate: ")
     print("Pay: %s" % (
@@ -15,7 +15,8 @@ def e2_grossPay():
         ))
     print()
 
-def e3_expressions():
+# print out various expressions
+def e4_expressions():
     width = 17
     height = 12.0
 
@@ -24,7 +25,8 @@ def e3_expressions():
     print(height/3)
     print()
 
-def e4_celcToFarens():
+# convert celcius to fahrenheit
+def e5_celcToFarens():
     celc = float(input("Temp in C: "))
     print("Temp in F: %s" % ((celc * 1.8) +32))
     print()
@@ -34,32 +36,37 @@ def e4_celcToFarens():
 ################################
 
 def run_prompt():
-    print("03 variables ex")
+    print("02 variables ex")
     print()
-    print("1. string name")
-    print("2. gross pay calc")
-    print("4. C to F")
+    print("2. string name")
+    print("3. gross pay calc")
+    print("4. random expressions")
+    print("5. C to F")
     print()
     return input("pick your choice: ")
+
+def close_prompt():
+    print("======================")
+    print("Closing")
+    print("======================")
+    exit()
 
 def run():
     while True:
         a = run_prompt()
         if a == 'x':
-            print("======================")
-            print("Closing")
-            print("======================")
-            exit()
-        elif a == '1':
-            e1_nameInput()
+            close_prompt()
         elif a == '2':
-            e2_grossPay()
+            e2_nameInput()
         elif a == '3':
-            e4_celcToFarens()
+            e3_grossPay()
+        elif a == '4':
+            e4_expressions()
+        elif a == '5':
+            e5_celcToFarens()
         else:
             print("======================")
-            print("Invalid input")
-        print("======================")
+            print("Invalid input\n")
 
     
 run()

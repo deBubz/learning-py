@@ -12,8 +12,7 @@ Truly, I need to stick with 1 - 2 lang if I want to get any where
 
 - Complete [python for everyone](https://www.py4e.com) also notes are in the speedrun folder
 
-## Python Notes
+## Simple stuff
 
-- simple Python syntax notes in the  `speedrun` [folder](./speedrun)
-- python for every one notes
-
+- [py4kids](speedrun/pyforkids/README.md) yes really
+- [py4e](speedrun/py4e/README.md)
