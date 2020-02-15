@@ -40,3 +40,7 @@ b.strip()           # ol
 ## Extras
 
 the method `dir(arg)`, where `arg` is a variable. The method returns a list of methods that can be applied on the variable
+
+## code 
+
+[ch06 strings](06string.py)
