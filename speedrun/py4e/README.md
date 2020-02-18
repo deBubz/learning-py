@@ -15,6 +15,15 @@ But this README will only contains some in
 - [05 iterations](notes/05-iterations/README.md)
 - [06 string](notes/06-strings/README.md)
 - [07 files](notes/07-files/README.md)
+- [08 Lists]()
+- [09 Dictionaries]()
+- [10 Tuples]()
+- [12 Regex]()
+- [13 Network Programming]()    
+- [14 Using Web Services]()
+- [15 OOP]()
+- [16 Database]()
+- [17 Data Visualization]()
 
 ---
 

@@ -1,7 +1,5 @@
 
-# 07 Files
-
-from [here](https://www.py4e.com/html3/07-files)
+# [07 Files](https://www.py4e.com/html3/07-files)
 
 ## Persistence
 
@@ -32,9 +30,11 @@ except:
 while the **handle** doesnt contain file data, its easy to setup a `for` loop to read and count each of the lines in a file
 
 ```python
-# count number of lines in file
+# open
 hand = open('mbox-short.txt')
 count = 0
+
+# count line
 for line in hand:
     count = count +1
 print('Line count:', count)
@@ -77,6 +77,7 @@ for line in fhand:
     if not line.startswith('From:'):    
         continue
     # Process our 'interesting' line
+    # skips the print(line) and go to the next itteration
     print(line)
 ```
 
