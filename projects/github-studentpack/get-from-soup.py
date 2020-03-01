@@ -3,17 +3,18 @@ from bs4 import BeautifulSoup
 from card import Card
 import re
 
+count = 0
+card_list = list()
+
 URL = 'https://education.github.com/pack'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
-card_list = list()
-count = 0
 
 # name              dt.span     class="d-none"
 # desc              dd.p        class="mb-3"
 # bonus list        findall     class="f5 text-gray"
 
-# find cards
+# list of cards
 elements = soup.find_all('div', class_='col-sm-6 col-lg-4 mb-3 mb-sm-5')
 for e in elements:
     # name
