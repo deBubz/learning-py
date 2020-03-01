@@ -35,5 +35,5 @@ for e in elements:
 
 # print
 for c in card_list:
-    print(c.sh_detail())
+    print(c.to_string())
 print(count, 'avaliable packages')
