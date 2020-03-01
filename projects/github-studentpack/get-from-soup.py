@@ -7,6 +7,7 @@ URL = 'https://education.github.com/pack'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 card_list = list()
+count = 0
 
 # name              dt.span     class="d-none"
 # desc              dd.p        class="mb-3"
@@ -30,6 +31,9 @@ for e in elements:
         card.card_bonuses.append(extract)
 
     card_list.append(card)
+    count = count + 1
 
+# print
 for c in card_list:
     print(c.sh_detail())
+print(count, 'avaliable packages')

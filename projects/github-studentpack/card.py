@@ -6,6 +6,7 @@ class Card():
     
     def sh_detail(self) -> str:
         msg = self.card_name + '\n'
+        msg = msg + '\t' + self.card_desc + '\n'
         for b in self.card_bonuses:
-            msg = msg + '\t' + b + '\n'
+            msg = msg + '\t** ' + b + '\n'
         return msg
