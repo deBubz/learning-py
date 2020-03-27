@@ -1,6 +1,6 @@
 # Github Education Pack
 
-A simple web scraper using `python` to get a list of tools offered in the [Githun Student Developer pack](https://education.github.com/pack)
+A simple web scraper using `python` to get the first result for a [UTS handbook query](https://handbook.uts.edu.au/)
 
 ## Requirements
 
@@ -12,6 +12,10 @@ pip install beautifulsoup4
 
 ## Run
 
+use the course number or name as the argument
+
 ```shell
-python3 get-from-soup.py
+python3 get-from-soup.py 31251
+
+python3 get-from-soup.py "data structures"
 ```
