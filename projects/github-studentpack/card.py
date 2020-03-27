@@ -4,7 +4,7 @@ class Card():
         self.card_desc = ''
         self.card_bonuses = list()
     
-    def to_string(self) -> str:
+    def to_string(self):
         msg = self.card_name + '\n'
         msg = msg + '\t' + self.card_desc + '\n'
         for b in self.card_bonuses:
